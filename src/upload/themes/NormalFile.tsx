@@ -81,7 +81,7 @@ export default function NormalFile(props: NormalFileProps) {
 
   // 输入框型预览
   const renderFilePreviewAsInput = () => {
-    const file = props.displayFiles[0];
+    const file = props.displayFiles[0] || {};
     const inputTextClass = [
       `${classPrefix}-input__inner`,
       { [`${uploadPrefix}__placeholder`]: !props.displayFiles[0] },
@@ -97,16 +97,16 @@ export default function NormalFile(props: NormalFileProps) {
               [props.placeholderClass]: props.placeholder,
             })}
           >
-            {file?.name ? fileName : props.placeholder}
+            {file.name ? fileName : props.placeholder}
           </span>
-          {file?.status === 'progress' && renderProgress(file.percent)}
-          {file?.status === 'waiting' && (
+          {file.status === 'progress' && renderProgress(file.percent)}
+          {file.status === 'waiting' && (
             <TimeFilledIcon className={`${uploadPrefix}__status-icon ${uploadPrefix}__file-waiting`} />
           )}
-          {file?.name && file.status === 'success' && (
+          {file.name && file.status === 'success' && (
             <CheckCircleFilledIcon className={`${uploadPrefix}__status-icon`} />
           )}
-          {file?.name && file.status === 'fail' && (
+          {file.name && file.status === 'fail' && (
             <ErrorCircleFilledIcon className={`${uploadPrefix}__status-icon ${uploadPrefix}__file-fail`} />
           )}
           {!disabled && (

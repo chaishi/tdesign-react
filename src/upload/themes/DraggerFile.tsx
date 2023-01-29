@@ -49,6 +49,7 @@ const DraggerFile: FC<DraggerProps> = (props) => {
   );
 
   const renderImage = () => {
+    if (!displayFiles.length) return null;
     const file = displayFiles[0];
     const url = file?.url || file?.response?.url;
     return (
@@ -59,6 +60,7 @@ const DraggerFile: FC<DraggerProps> = (props) => {
   };
 
   const renderUploading = () => {
+    if (!displayFiles.length) return null;
     const file = displayFiles[0];
     if (file?.status === 'progress') {
       return (
