@@ -96,7 +96,7 @@ data | Object | - | required。Typescript：`T` | Y
 expanded | Boolean | - | required | Y
 indeterminate | Boolean | - | required | Y
 loading | Boolean | - | required | Y
-`TreeNodeState` | \- | - | \- | N
+`TreeNodeState` | \- | - | extends `TreeNodeState` | N
 ### TreeNodeModel
 
 name | params | return | description
